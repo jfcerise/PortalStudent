@@ -15,6 +15,10 @@ namespace PortalStudent.MVC5.Controllers
         {
             var adminRole = new AdminRole();
 
+            var a = 1;
+            var b = 23.4;
+            var c = a + b;
+
             return View(adminRole.GetIngredients());
         }
 

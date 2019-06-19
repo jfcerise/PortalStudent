@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace PortalStudent.MVC5
+namespace TempTest
 {
     public class BundleConfig
     {
@@ -20,10 +20,10 @@ namespace PortalStudent.MVC5
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap-united.js"));
+                      "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap-united.css",
+                      "~/Content/bootstrap.css",
                       "~/Content/site.css"));
         }
     }
