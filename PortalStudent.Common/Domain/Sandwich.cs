@@ -10,5 +10,7 @@ namespace PortalStudent.Common.Domain
     {
         public int SandwichId { get; set; }
         public string Name { get; set; }
+
+        public ICollection<Ingredient> Ingredients { get; set; }
     }
 }
