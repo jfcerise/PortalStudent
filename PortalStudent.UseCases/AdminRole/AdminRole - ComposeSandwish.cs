@@ -32,6 +32,25 @@ namespace PortalStudent.UseCases
             return true;
         }
 
+        public bool ComposeSandwish(Sandwich sandwishToUse,Ingredient ingredientsToAdd)
+        {
+            sandwishToUse.Ingredients.Add(ingredientsToAdd);
+            
+            using (var ctx = new PortalContext())
+            {
+                if (!ctx.Sandwiches.Any(x => x.Name == sandwishToUse.Name))
+                {
+                    throw new Exception(nameof(sandwishToUse));
+                }
+                ctx.Sandwiches.Attach(sandwishToUse);
+
+                ctx.SaveChanges();
+
+            }
+
+            return true;
+        }
+
         public bool removeIngredientInComposition(int SId, int IId)
         {
 

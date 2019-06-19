@@ -188,6 +188,8 @@
     <Content Include="Views\Student\Delete.cshtml" />
     <Content Include="Views\Student\Edit.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Sandwich\addInSandwich.cshtml" />
+    <Content Include="Views\Sandwich\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
