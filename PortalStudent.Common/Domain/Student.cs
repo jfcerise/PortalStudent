@@ -12,6 +12,7 @@ namespace PortalStudent.Common.Domain
         public string StudentName { get; set; }
         public string StudentFirstName { get; set; }
         public ICollection<Sandwich> Sandwiches { get; set; }
+        public ICollection<Class> Classes { get; set; }
     }
 }
 

@@ -44,6 +44,7 @@ namespace PortalStudent.MVC5.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(Ingredient ing)
         {
             var adminRole = new AdminRole();

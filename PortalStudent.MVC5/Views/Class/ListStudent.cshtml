@@ -1,0 +1,34 @@
+﻿@model PortalStudent.MVC5.Models.ClassWithStudentsVM
+
+@{
+    ViewBag.Title = "Index";
+}
+
+    <h2>Students to add to @Html.DisplayNameFor(model => model.Classe.Local)</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Students[0].StudentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Students[0].StudentFirstName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Students) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentFirstName)
+        </td>
+        <td>
+            @Html.ActionLink("Add", "AddStudent", new { ClassId = Model.Classe.ClassId, StudentId = item.StudentId })
+        </td>
+    </tr>
+}
+
+</table>

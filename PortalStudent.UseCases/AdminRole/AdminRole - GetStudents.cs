@@ -29,8 +29,11 @@ namespace PortalStudent.UseCases
         {
             using (var ctx = new PortalContext())
             {
+                var st2 = from x in ctx.Classes
+                          where x.ClassId == ClassId
+                          select x.Students;
 
-                return ctx.Classes.FirstOrDefault(x => x.ClassId==ClassId).Students.ToList();
+                return st2 != null? st2.First().ToList(): new List<Student>();
 
             }
         }
