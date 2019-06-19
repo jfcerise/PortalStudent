@@ -1,4 +1,5 @@
 ﻿using PortalStudent.Common.Domain;
+using PortalStudent.MVC5.Models;
 using PortalStudent.UseCases;
 using System;
 using System.Collections.Generic;
@@ -39,7 +40,10 @@ namespace PortalStudent.MVC5.Controllers
         {
             var adminRole = new AdminRole();
 
-            return View(adminRole.GetSandwish(id));
+            var sandwichToUse = adminRole.GetSandwish(id);
+            //var listIngredients = adminRole.GetIngredients().Except(sandwichToUse.Ingredients);
+            var listIngredients = adminRole.GetIngredients();
+            return View(new ViewModel_Sandwich_Ingredients(sandwichToUse, listIngredients));
         }
 
 
@@ -48,7 +52,7 @@ namespace PortalStudent.MVC5.Controllers
         {
             var adminRole = new AdminRole();
 
-            //adminRole.ed(sandwich);
+            adminRole.EditSandwichInMenu(sandwich);
 
             return RedirectToAction("Index");
         }
@@ -59,16 +63,19 @@ namespace PortalStudent.MVC5.Controllers
         {
             var adminRole = new AdminRole();
             return View(adminRole.GetIngredients());
-        }
+        }*/
 
         [HttpPost]
-        public ActionResult addInSandwich(Sandwich sandwich, Ingredient ingredient)
+        public ActionResult addInSandwich(int Idsandwich, int Idingredient)
         {
             var adminRole = new AdminRole();
 
+            var sandwich = adminRole.GetSandwish(Idsandwich);
+            var ingredient = adminRole.GetIngredient(Idingredient);
             adminRole.ComposeSandwish(sandwich, ingredient);
-            return View("Composition",sandwich.SandwichId);
-        }*/
+
+            return RedirectToAction("Edit",Idsandwich);
+        }
 
 
 

@@ -1,4 +1,4 @@
-﻿@model PortalStudent.Common.Domain.Sandwich
+﻿@model PortalStudent.MVC5.Models.ViewModel_Sandwich_Ingredients
 
 @{
     ViewBag.Title = "Edit";
@@ -10,20 +10,45 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Sandwich</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.SandwichId)
+        @Html.HiddenFor(model => model.Sandwich.SandwichId)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Sandwich.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Sandwich.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Sandwich.Name, "", new { @class = "text-danger" })
             </div>
         </div>
+
+        <div class="form-group">
+            <table class="table">
+                <tr>
+                    <th>
+                        This sandwich is composed of
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model.Sandwich.Ingredients)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Remove", "DeleteIngredient", new { idS = Model.Sandwich.SandwichId, idIng = item.IngredientId })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -32,11 +57,38 @@
         </div>
     </div>
 }
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
+<div class="form-horizontal">
+    @Html.LabelFor(x => Model.Ingredients, "Available ingredients")
+    <div class="form-group">
+        @Html.DropDownListFor(x => Model.Ingredients, new SelectList(Model.Ingredients, "IngredientId", "Name"), htmlAttributes: new { @class = "form-control", id = "Ingredient" })
+    </div>
+
+    <p>
+        <!-- Benjamin : pas encore réussi à faire fonctionner ce lien avec Javascript -->
+       @Html.ActionLink("Add new ingredient", "addInSandwich", new { Idsandwich = Model.Sandwich.SandwichId, Idingredient = "onClickAddIngredient();" })
+
+    </p>
+
+</div>
+ 
+}
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        function onClickAddIngredient() {
+            return document.getElementById("Ingredient").value;
+        }
+
+
+    </script>
 }
