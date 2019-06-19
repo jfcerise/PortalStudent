@@ -1,7 +1,10 @@
-﻿using System;
+﻿using PortalStudent.Common.Domain;
+using PortalStudent.UseCases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace PortalStudent.MVC5.Controllers
 {
@@ -61,5 +64,4 @@ namespace PortalStudent.MVC5.Controllers
         }
 
     }
-}
 }

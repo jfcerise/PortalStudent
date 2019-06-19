@@ -49,10 +49,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminRole\AdminRole - AddClassInMenu.cs" />
+    <Compile Include="AdminRole\AdminRole - AddIngredientInStock.cs" />
+    <Compile Include="AdminRole\AdminRole - AddStudent.cs" />
+    <Compile Include="AdminRole\AdminRole - ComposeSandwish.cs" />
+    <Compile Include="AdminRole\AdminRole - DeleteIngredientInStock.cs" />
+    <Compile Include="AdminRole\AdminRole - EditIngredientInStock.cs" />
+    <Compile Include="AdminRole\AdminRole - GetClasses.cs" />
+    <Compile Include="AdminRole\AdminRole - GetIngredient.cs" />
+    <Compile Include="AdminRole\AdminRole - GetIngredients.cs" />
     <Compile Include="AdminRole\AdminRole - GetSandwish.cs" />
     <Compile Include="AdminRole\AdminRole - GetSandwishes.cs" />
     <Compile Include="AdminRole\AdminRole - CTOR.cs" />
     <Compile Include="AdminRole\AdminRole - AddSandwishInMenu.cs" />
+    <Compile Include="AdminRole\AdminRole - GetStudents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

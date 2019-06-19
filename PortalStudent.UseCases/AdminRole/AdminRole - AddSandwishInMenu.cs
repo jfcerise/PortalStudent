@@ -1,34 +1,33 @@
-﻿using DataAccess;
+﻿using PortalStudent.Common.Domain;
+using PortalStudent.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PortalStudent.Common.Domain;
-using PortalStudent.DataAccess;
 
 namespace PortalStudent.UseCases
 {
     public partial class AdminRole
     {
-        public bool AddSandwishInMenu(Sandwich NewSandwish)
+        public bool AddSandwishInMenu(Sandwich sandwishToUse)
         {
-            if (NewSandwish == null)
-                throw new ArgumentNullException(nameof(NewSandwish));
+            if (sandwishToUse == null)
+                throw new ArgumentNullException(nameof(sandwishToUse));
 
-            if (NewSandwish.SandwichId != 0)
-                throw new Exception(nameof(NewSandwish));
+            if (sandwishToUse.SandwichId != 0)
+                throw new Exception(nameof(sandwishToUse));
             
-            if (String.IsNullOrEmpty(NewSandwish.Name) || String.IsNullOrWhiteSpace(NewSandwish.Name))
-                throw new Exception(nameof(NewSandwish));
+            if (String.IsNullOrEmpty(sandwishToUse.Name) || String.IsNullOrWhiteSpace(sandwishToUse.Name))
+                throw new Exception(nameof(sandwishToUse));
 
             using (var ctx = new PortalContext())
             {
-                if (ctx.Sandwiches.Any(x => x.Name == NewSandwish.Name))
+                if (ctx.Sandwiches.Any(x => x.Name == sandwishToUse.Name))
                 {
-                    throw new Exception(nameof(NewSandwish));
+                    throw new Exception(nameof(sandwishToUse));
                 }
-                ctx.Sandwiches.Add(NewSandwish);
+                ctx.Sandwiches.Add(sandwishToUse);
                 ctx.SaveChanges();
             }
 

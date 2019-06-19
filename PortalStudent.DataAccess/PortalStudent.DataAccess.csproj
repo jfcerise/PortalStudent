@@ -49,35 +49,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201906180939298_Initial.cs" />
-    <Compile Include="Migrations\201906180939298_Initial.Designer.cs">
-      <DependentUpon>201906180939298_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201906190431001_InitialCreate.cs" />
+    <Compile Include="Migrations\201906190431001_InitialCreate.Designer.cs">
+      <DependentUpon>201906190431001_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201906180941291_v1.cs" />
-    <Compile Include="Migrations\201906180941291_v1.Designer.cs">
-      <DependentUpon>201906180941291_v1.cs</DependentUpon>
+    <Compile Include="Migrations\201906190459117_v2JF.cs" />
+    <Compile Include="Migrations\201906190459117_v2JF.Designer.cs">
+      <DependentUpon>201906190459117_v2JF.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SandwishContext.cs" />
+    <Compile Include="PortalContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201906180939298_Initial.resx">
-      <DependentUpon>201906180939298_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906180941291_v1.resx">
-      <DependentUpon>201906180941291_v1.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\PortalStudent.Common\PortalStudent.Common.csproj">
       <Project>{59532884-4a54-422d-9d9b-ec9cfb649822}</Project>
       <Name>PortalStudent.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201906190431001_InitialCreate.resx">
+      <DependentUpon>201906190431001_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906190459117_v2JF.resx">
+      <DependentUpon>201906190459117_v2JF.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

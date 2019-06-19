@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PortalStudent.Common.Domain
 {
-    public class Class
+    public class Student
     {
-        public int ClassId { get; set; }
-        public string Local { get; set; }
-
+        public int StudentId { get; set; }
+        public string StudentName { get; set; }
+        public string StudentFirstName { get; set; }
         public ICollection<Sandwich> Sandwiches { get; set; }
-        public ICollection<Student> Students { get; set; }
     }
 }
+

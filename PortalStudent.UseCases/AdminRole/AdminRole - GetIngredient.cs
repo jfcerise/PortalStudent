@@ -11,11 +11,15 @@ namespace PortalStudent.UseCases
 {
     public partial class AdminRole
     {
-        public List<Sandwich> GetSandwishes()
+        public Ingredient GetIngredient(int id)
         {
+            if (id == 0)
+            {
+                throw new ArgumentNullException(nameof(id));
+            }
             using(var ctx = new PortalContext())
             {
-                return ctx.Sandwiches.Include( x=>x.Ingredients).ToList();
+              return ctx.Ingredients.FirstOrDefault(x => x.IngredientId == id);
             }
         }
     }

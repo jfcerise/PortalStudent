@@ -1,12 +1,12 @@
-﻿using Business;
-using Common.Domain;
+﻿using PortalStudent.Common.Domain;
+using PortalStudent.UseCases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace DemoData.Controllers
+namespace PortalStudent.MVC5.Controllers
 {
     public class ClassController : Controller
     {

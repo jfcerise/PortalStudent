@@ -1,22 +1,17 @@
-﻿using Business;
-using Common.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using PortalStudent.Common.Domain;
+using PortalStudent.UseCases;
 using System.Web.Mvc;
 
-namespace DemoData.Controllers
+namespace PortalStudent.MVC5.Controllers
 {
-    public class ClassController : Controller
+    public class StudentController : Controller
     {
-        // GET: Class
+        // GET: Students
         public ActionResult Index()
         {
             var adminRole = new AdminRole();
-            return View(adminRole.GetClasses());
+            return View(adminRole.GetStudents());
         }
-
         [HttpGet]
         public ActionResult Create()
         {
@@ -24,42 +19,43 @@ namespace DemoData.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit(int ClassId)
+        public ActionResult Edit(int StudentId)
         {
             var adminRole = new AdminRole();
 
-            return View(adminRole.GetClass(ClassId));
+            return View(adminRole.GetStudent(StudentId));
         }
 
         [HttpGet]
-        public ActionResult Delete(int ClassId)
+        public ActionResult Delete(int StudentId)
         {
             var adminRole = new AdminRole();
-            return View(adminRole.GetClass(ClassId));
+            return View(adminRole.GetStudent(StudentId));
         }
 
         [HttpPost]
-        public ActionResult Create(Class maclasse)
+        public ActionResult Create(Student monstudent)
         {
             var adminRole = new AdminRole();
-            adminRole.AddClassInMenu(maclasse);
+            adminRole.AddStudent(monstudent);
             return RedirectToAction("Index");
         }
 
         [HttpPost]
-        public ActionResult Edit(Class maclasse)
+        public ActionResult Edit(Student monstudent)
         {
             var adminRole = new AdminRole();
-            adminRole.UpdClass(maclasse);
+            adminRole.UpdStudent(monstudent);
             return RedirectToAction("Index");
         }
 
         [HttpPost]
-        public ActionResult Delete(Class maclasse)
+        public ActionResult Delete(Student monstudent)
         {
             var adminRole = new AdminRole();
-            adminRole.DelClass(maclasse);
+            adminRole.DelStudent(monstudent);
             return RedirectToAction("Index");
         }
+
     }
 }

@@ -45,6 +45,7 @@
     <Compile Include="Domain\Class.cs" />
     <Compile Include="Domain\Ingredient.cs" />
     <Compile Include="Domain\Sandwich.cs" />
+    <Compile Include="Domain\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

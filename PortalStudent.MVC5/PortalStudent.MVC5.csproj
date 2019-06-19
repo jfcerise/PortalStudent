@@ -8,7 +8,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{E538D751-D0FE-4A78-86CC-6AF6993F0074}</ProjectGuid>
+    <ProjectGuid>{6722016C-EF8A-411B-9AAE-62C967D19F05}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -25,7 +25,6 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,12 +45,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -60,7 +53,11 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -123,9 +120,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ClassController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IngredientController.cs" />
     <Compile Include="Controllers\SandwichController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -136,105 +135,12 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\ThemeA\.gitignore" />
-    <Content Include="Content\ThemeA\css\stylish-portfolio.css" />
-    <Content Include="Content\ThemeA\css\stylish-portfolio.min.css" />
-    <Content Include="Content\ThemeA\gulpfile.js" />
-    <Content Include="Content\ThemeA\img\bg-callout.jpg" />
-    <Content Include="Content\ThemeA\img\bg-masthead.jpg" />
-    <Content Include="Content\ThemeA\img\portfolio-1.jpg" />
-    <Content Include="Content\ThemeA\img\portfolio-2.jpg" />
-    <Content Include="Content\ThemeA\img\portfolio-3.jpg" />
-    <Content Include="Content\ThemeA\img\portfolio-4.jpg" />
-    <Content Include="Content\ThemeA\index.html" />
-    <Content Include="Content\ThemeA\js\stylish-portfolio.js" />
-    <Content Include="Content\ThemeA\js\stylish-portfolio.min.js" />
-    <Content Include="Content\ThemeA\vendor\bootstrap\css\bootstrap-grid.css" />
-    <Content Include="Content\ThemeA\vendor\bootstrap\css\bootstrap-grid.min.css" />
-    <Content Include="Content\ThemeA\vendor\bootstrap\css\bootstrap-reboot.css" />
-    <Content Include="Content\ThemeA\vendor\bootstrap\css\bootstrap-reboot.min.css" />
-    <Content Include="Content\ThemeA\vendor\bootstrap\css\bootstrap.css" />
-    <Content Include="Content\ThemeA\vendor\bootstrap\css\bootstrap.min.css" />
-    <Content Include="Content\ThemeA\vendor\bootstrap\js\bootstrap.bundle.js" />
-    <Content Include="Content\ThemeA\vendor\bootstrap\js\bootstrap.bundle.min.js" />
-    <Content Include="Content\ThemeA\vendor\bootstrap\js\bootstrap.js" />
-    <Content Include="Content\ThemeA\vendor\bootstrap\js\bootstrap.min.js" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\css\all.css" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\css\all.min.css" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\css\brands.css" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\css\brands.min.css" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\css\fontawesome.css" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\css\fontawesome.min.css" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\css\regular.css" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\css\regular.min.css" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\css\solid.css" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\css\solid.min.css" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\css\svg-with-js.css" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\css\svg-with-js.min.css" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\css\v4-shims.css" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\css\v4-shims.min.css" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\webfonts\fa-brands-400.svg" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\webfonts\fa-regular-400.svg" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\webfonts\fa-solid-900.svg" />
-    <Content Include="Content\ThemeA\vendor\jquery-easing\jquery.easing.compatibility.js" />
-    <Content Include="Content\ThemeA\vendor\jquery-easing\jquery.easing.js" />
-    <Content Include="Content\ThemeA\vendor\jquery-easing\jquery.easing.min.js" />
-    <Content Include="Content\ThemeA\vendor\jquery\jquery.js" />
-    <Content Include="Content\ThemeA\vendor\jquery\jquery.min.js" />
-    <Content Include="Content\ThemeA\vendor\jquery\jquery.slim.js" />
-    <Content Include="Content\ThemeA\vendor\jquery\jquery.slim.min.js" />
-    <Content Include="Content\ThemeA\vendor\simple-line-icons\css\simple-line-icons.css" />
-    <Content Include="Content\ThemeA\vendor\simple-line-icons\fonts\Simple-Line-Icons.svg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Content\ThemeA\.travis.yml" />
-    <Content Include="Content\ThemeA\LICENSE" />
-    <Content Include="Content\ThemeA\package-lock.json" />
-    <Content Include="Content\ThemeA\package.json" />
-    <Content Include="Content\ThemeA\README.md" />
-    <Content Include="Content\ThemeA\scss\stylish-portfolio.scss" />
-    <Content Include="Content\ThemeA\scss\_bootstrap-overrides.scss" />
-    <Content Include="Content\ThemeA\scss\_callout.scss" />
-    <Content Include="Content\ThemeA\scss\_footer.scss" />
-    <Content Include="Content\ThemeA\scss\_global.scss" />
-    <Content Include="Content\ThemeA\scss\_masthead.scss" />
-    <Content Include="Content\ThemeA\scss\_mixins.scss" />
-    <Content Include="Content\ThemeA\scss\_portfolio.scss" />
-    <Content Include="Content\ThemeA\scss\_services.scss" />
-    <Content Include="Content\ThemeA\scss\_sidebar.scss" />
-    <Content Include="Content\ThemeA\scss\_variables.scss" />
-    <Content Include="Content\ThemeA\vendor\bootstrap\css\bootstrap-grid.css.map" />
-    <Content Include="Content\ThemeA\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
-    <Content Include="Content\ThemeA\vendor\bootstrap\css\bootstrap-reboot.css.map" />
-    <Content Include="Content\ThemeA\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
-    <Content Include="Content\ThemeA\vendor\bootstrap\css\bootstrap.css.map" />
-    <Content Include="Content\ThemeA\vendor\bootstrap\css\bootstrap.min.css.map" />
-    <Content Include="Content\ThemeA\vendor\bootstrap\js\bootstrap.bundle.js.map" />
-    <Content Include="Content\ThemeA\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
-    <Content Include="Content\ThemeA\vendor\bootstrap\js\bootstrap.js.map" />
-    <Content Include="Content\ThemeA\vendor\bootstrap\js\bootstrap.min.js.map" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\webfonts\fa-brands-400.eot" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\webfonts\fa-brands-400.ttf" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\webfonts\fa-brands-400.woff" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\webfonts\fa-brands-400.woff2" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\webfonts\fa-regular-400.eot" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\webfonts\fa-regular-400.ttf" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\webfonts\fa-regular-400.woff" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\webfonts\fa-regular-400.woff2" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\webfonts\fa-solid-900.eot" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\webfonts\fa-solid-900.ttf" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\webfonts\fa-solid-900.woff" />
-    <Content Include="Content\ThemeA\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
-    <Content Include="Content\ThemeA\vendor\jquery\jquery.min.map" />
-    <Content Include="Content\ThemeA\vendor\jquery\jquery.slim.min.map" />
-    <Content Include="Content\ThemeA\vendor\simple-line-icons\fonts\Simple-Line-Icons.eot" />
-    <Content Include="Content\ThemeA\vendor\simple-line-icons\fonts\Simple-Line-Icons.ttf" />
-    <Content Include="Content\ThemeA\vendor\simple-line-icons\fonts\Simple-Line-Icons.woff" />
-    <Content Include="Content\ThemeA\vendor\simple-line-icons\fonts\Simple-Line-Icons.woff2" />
     <None Include="Scripts\jquery-3.3.1-vsdoc.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -255,19 +161,27 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Sandwich\Index.cshtml" />
-    <Content Include="Views\Sandwich\Create.cshtml" />
-    <Content Include="Views\Sandwich\Details.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Sandwich\Composition.cshtml" />
-    <Content Include="Views\Sandwich\View.cshtml" />
+    <Content Include="Views\Class\Create.cshtml" />
+    <Content Include="Views\Class\Delete.cshtml" />
+    <Content Include="Views\Class\Edit.cshtml" />
+    <Content Include="Views\Class\Index.cshtml" />
     <Content Include="Views\Ingredient\Create.cshtml" />
     <Content Include="Views\Ingredient\Edit.cshtml" />
     <Content Include="Views\Ingredient\Index.cshtml" />
+    <Content Include="Views\Sandwich\Composition.cshtml" />
+    <Content Include="Views\Sandwich\Create.cshtml" />
+    <Content Include="Views\Sandwich\Details.cshtml" />
+    <Content Include="Views\Sandwich\Index.cshtml" />
+    <Content Include="Views\Sandwich\View.cshtml" />
+    <Content Include="Views\Student\Create.cshtml" />
+    <Content Include="Views\Student\Delete.cshtml" />
+    <Content Include="Views\Student\Edit.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -287,17 +201,13 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PortalStudent.UseCases\PortalStudent.UseCases.csproj">
-      <Project>{b3f602aa-4912-4d20-8f7c-55fb701691d0}</Project>
-      <Name>PortalStudent.UseCases</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PortalStudent.Common\PortalStudent.Common.csproj">
       <Project>{59532884-4A54-422D-9D9B-EC9CFB649822}</Project>
       <Name>PortalStudent.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PortalStudent.DataAccess\PortalStudent.DataAccess.csproj">
-      <Project>{DCD8D69E-F6E6-4650-BDDA-F24083BEA68B}</Project>
-      <Name>PortalStudent.DataAccess</Name>
+    <ProjectReference Include="..\PortalStudent.UseCases\PortalStudent.UseCases.csproj">
+      <Project>{B3F602AA-4912-4D20-8F7C-55FB701691D0}</Project>
+      <Name>PortalStudent.UseCases</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
@@ -316,7 +226,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>17818</DevelopmentServerPort>
+          <DevelopmentServerPort>1315</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>https://localhost:44390/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
