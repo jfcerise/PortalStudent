@@ -10,7 +10,6 @@ namespace PortalStudent.DataAccess.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "PortalStudent.DataAccess.PortalContext";
         }
 
         protected override void Seed(PortalStudent.DataAccess.PortalContext context)
