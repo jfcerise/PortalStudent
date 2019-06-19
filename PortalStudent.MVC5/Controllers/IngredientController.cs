@@ -35,7 +35,9 @@ namespace PortalStudent.MVC5.Controllers
 
             adminRole.AddIngredientInStock(ing);
 
-            return View("Index", adminRole.GetIngredients());
+            // return View("Index", adminRole.GetIngredients());
+
+            return RedirectToAction("Index");
         }
 
 
@@ -54,7 +56,8 @@ namespace PortalStudent.MVC5.Controllers
 
             adminRole.EditIngredientInStock(ing);
 
-            return View("Index", adminRole.GetIngredients());
+            // return View("Index", adminRole.GetIngredients());
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -64,7 +67,8 @@ namespace PortalStudent.MVC5.Controllers
 
             adminRole.DeleteIngredientInStock(id);
 
-            return View("Index", adminRole.GetIngredients());
+            // return View("Index", adminRole.GetIngredients());
+            return RedirectToAction("Index");
         }
 
     }

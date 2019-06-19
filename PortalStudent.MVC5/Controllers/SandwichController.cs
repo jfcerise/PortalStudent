@@ -34,13 +34,52 @@ namespace PortalStudent.MVC5.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var adminRole = new AdminRole();
+
+            return View(adminRole.GetSandwish(id));
+        }
+
+
+        [HttpPost]
+        public ActionResult Edit(Sandwich sandwich)
+        {
+            var adminRole = new AdminRole();
+
+            //adminRole.ed(sandwich);
+
+            return RedirectToAction("Index");
+        }
+
+        /*
+        [HttpGet]
+        public ActionResult addInSandwich(Sandwich sandwich)
+        {
+            var adminRole = new AdminRole();
+            return View(adminRole.GetIngredients());
+        }
+
+        [HttpPost]
+        public ActionResult addInSandwich(Sandwich sandwich, Ingredient ingredient)
+        {
+            var adminRole = new AdminRole();
+
+            adminRole.ComposeSandwish(sandwich, ingredient);
+            return View("Composition",sandwich.SandwichId);
+        }*/
+
+
+
+
         //[HttpGet]
         //public ActionResult Details()
         //{
         //    return View();
         //}
 
-//TODO Not in Benjamin
+        //TODO Not in Benjamin
         [HttpPost]
         public ActionResult Details(int sandwichId)
         {
@@ -48,6 +87,7 @@ namespace PortalStudent.MVC5.Controllers
 
             return View(adminRole.GetSandwish(sandwichId));
         }
+
 
         #region By Benjamin
         [HttpGet]
