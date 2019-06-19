@@ -54,6 +54,7 @@
     <Compile Include="AdminRole\AdminRole - AddStudent.cs" />
     <Compile Include="AdminRole\AdminRole - ComposeSandwish.cs" />
     <Compile Include="AdminRole\AdminRole - DeleteIngredientInStock.cs" />
+    <Compile Include="AdminRole\AdminRole - EditSandwichInMenu.cs" />
     <Compile Include="AdminRole\AdminRole - EditIngredientInStock.cs" />
     <Compile Include="AdminRole\AdminRole - GetClasses.cs" />
     <Compile Include="AdminRole\AdminRole - GetIngredient.cs" />
