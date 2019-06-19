@@ -40,6 +40,7 @@ namespace PortalStudent.MVC5.Controllers
         //    return View();
         //}
 
+//TODO Not in Benjamin
         [HttpPost]
         public ActionResult Details(int sandwichId)
         {
@@ -47,5 +48,33 @@ namespace PortalStudent.MVC5.Controllers
 
             return View(adminRole.GetSandwish(sandwichId));
         }
+
+        #region By Benjamin
+        [HttpGet]
+        public ActionResult Composition(int id)
+        {
+            var adminRole = new AdminRole();
+
+            return View(adminRole.GetSandwish(id));
+        }
+
+        [HttpPost]
+        public ActionResult Composition(Sandwich sandwich, ICollection<Ingredient> ingredients)
+        {
+            var adminRole = new AdminRole();
+
+            adminRole.ComposeSandwish(sandwich, ingredients);
+
+            return View("Index");
+        }
+
+        [HttpGet]
+        public ActionResult DeleteIngredient(int SandwichId, int IngredientId)
+        {
+            var adminRole = new AdminRole();
+            adminRole.removeIngredientInComposition(SandwichId, IngredientId);
+            return View("Composition", SandwichId);
+        }
+        #endregion
     }
 }

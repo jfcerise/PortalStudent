@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\Class.cs" />
+    <Compile Include="Domain\Ingredient.cs" />
     <Compile Include="Domain\Sandwich.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
