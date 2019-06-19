@@ -1,0 +1,35 @@
+﻿@model PortalStudent.MVC5.Models.ClassWithStudentsVM
+
+@{
+    ViewBag.Title = "Composition Classe";
+}
+
+    <h2>Etudiants à ajouter à la classe '@Html.DisplayNameFor(model => model.Classe.Local)'</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Selected
+        </th>
+        <th>
+            NOM Prénom
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Students) {
+    <tr>
+        <td>
+            @Html.CheckBoxFor(modelItem => item.Subscribed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Add", "AddStudent", new { ClassId = Model.Classe.ClassId, StudentId = item.StudentId })
+        </td>
+    </tr>
+}
+
+</table>
+

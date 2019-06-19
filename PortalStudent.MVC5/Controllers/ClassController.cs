@@ -1,4 +1,5 @@
 ﻿using PortalStudent.Common.Domain;
+using PortalStudent.MVC5.Models;
 using PortalStudent.UseCases;
 using System;
 using System.Collections.Generic;
@@ -61,5 +62,49 @@ namespace PortalStudent.MVC5.Controllers
             adminRole.DelClass(maclasse);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult Details(int ClassId)
+        {
+            var adminRole = new AdminRole();
+            var students = adminRole.GetStudentsOfClass(ClassId).Select(x => new StudentSubscriptionVM { StudentId = x.StudentId, Name = $"{x.StudentName}, {x.StudentFirstName}", Subscribed = true }).ToList();
+            var ViewValue = new ClassWithStudentsVM { Classe = adminRole.GetClass(ClassId), Students = students };
+
+            return View(ViewValue);
+        }
+
+        [HttpGet]
+        public ActionResult ListStudent(int ClassId)
+        {
+            var adminRole = new AdminRole();
+
+            // var students = adminRole.GetStudents().Except(adminRole.GetStudentsOfClass(ClassId)).ToList();
+            var students = adminRole.GetStudents().Select(x => new StudentSubscriptionVM { StudentId = x.StudentId, Name = $"{x.StudentName}, {x.StudentFirstName}", Subscribed = false }).ToList();
+            var studentsSubscribed = adminRole.GetStudentsOfClass(ClassId).ToList();
+
+            students.ForEach(x => x.Subscribed = studentsSubscribed.Any(y => y.StudentId == x.StudentId));
+            var ViewValue = new ClassWithStudentsVM { Classe = adminRole.GetClass(ClassId), Students = students };
+
+
+            return View(ViewValue);//ajouter page de selection
+        }
+
+        [HttpGet]
+        public ActionResult AddStudent(int ClassId, int StudentId)
+        {
+            var adminRole = new AdminRole();
+
+            var ViewValue = adminRole.AddStudent2(adminRole.GetClass(ClassId),adminRole.GetStudent(StudentId));
+
+            return RedirectToAction("Details", new { ClassId = ClassId });
+        }
+        [HttpGet]
+        public ActionResult RemoveStudent(int ClassId, int StudentId)
+        {
+            //remove student de la classes
+
+            return RedirectToAction("Details", new { ClassId = ClassId });
+        }
+
     }
 }

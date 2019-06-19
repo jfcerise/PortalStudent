@@ -9,7 +9,7 @@ namespace PortalStudent.DataAccess.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(PortalStudent.DataAccess.PortalContext context)

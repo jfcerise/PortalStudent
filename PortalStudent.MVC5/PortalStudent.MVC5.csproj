@@ -134,6 +134,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ClassWithStudentsVM.cs" />
+    <Compile Include="Models\StudentSubscriptionVM.cs" />
     <Compile Include="Models\ViewModel_Sandwich_Ingredients.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -190,10 +192,12 @@
     <Content Include="Views\Sandwich\Details.cshtml" />
     <Content Include="Views\Sandwich\Index.cshtml" />
     <Content Include="Views\Sandwich\View.cshtml" />
-    <Content Include="Views\Student\Create.cshtml" />
     <Content Include="Views\Student\Delete.cshtml" />
     <Content Include="Views\Student\Edit.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Student\Create.cshtml" />
+    <Content Include="Views\Class\Details.cshtml" />
+    <Content Include="Views\Class\ListStudent.cshtml" />
     <Content Include="Views\Sandwich\addInSandwich.cshtml" />
     <Content Include="Views\Sandwich\Edit.cshtml" />
   </ItemGroup>

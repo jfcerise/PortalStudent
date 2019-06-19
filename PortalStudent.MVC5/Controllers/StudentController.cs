@@ -33,6 +33,13 @@ namespace PortalStudent.MVC5.Controllers
             return View(adminRole.GetStudent(StudentId));
         }
 
+        [HttpGet]
+        public ActionResult Details(int StudentId)
+        {
+            var adminRole = new AdminRole();
+            return View(adminRole.GetStudent(StudentId));
+        }
+
         [HttpPost]
         public ActionResult Create(Student monstudent)
         {

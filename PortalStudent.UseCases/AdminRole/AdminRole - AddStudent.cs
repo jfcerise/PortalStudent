@@ -34,6 +34,36 @@ namespace PortalStudent.UseCases
 
             return true;
         }
+        public bool AddStudent2(Class Classe, Student StudentToUse)
+        {
+            if (StudentToUse == null)
+                throw new ArgumentNullException(nameof(StudentToUse));
+
+            if (StudentToUse.StudentId != 0)
+                throw new Exception(nameof(StudentToUse));
+
+            if (String.IsNullOrEmpty(StudentToUse.StudentName) || String.IsNullOrWhiteSpace(StudentToUse.StudentName))
+                throw new Exception(nameof(StudentToUse));
+
+            Classe.Students.Add(StudentToUse);
+
+            using (var ctx = new PortalContext())
+            {
+                if (ctx.Classes.Any(x => x.ClassId == Classe.ClassId))
+                {
+                    throw new Exception(nameof(Classe));
+                }
+                if (ctx.Students.Any(x => x.StudentName == StudentToUse.StudentName))
+                {
+                    throw new Exception(nameof(StudentToUse));
+                }
+                ctx.Classes.Attach(Classe);
+                //ctx.Students.Add(StudentToUse);
+                ctx.SaveChanges();
+            }
+
+            return true;
+        }
         public bool UpdStudent(Student StudentToUse)
         {
             if (StudentToUse == null)
