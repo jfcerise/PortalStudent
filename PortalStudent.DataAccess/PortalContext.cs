@@ -17,18 +17,18 @@ namespace PortalStudent.DataAccess
 
         }
 
-        //public DbSet<Class> Classes { get; set; }
-        //public DbSet<Sandwich> Sandwiches { get; set; }
-        //public DbSet<Ingredient> Ingredients { get; set; }
+        public DbSet<Class> Classes { get; set; }
+        public DbSet<Sandwich> Sandwiches { get; set; }
+        public DbSet<Ingredient> Ingredients { get; set; }
 
-        //public DbSet<Student> Students { get; set; }
+        public DbSet<Student> Students { get; set; }
 
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
 
-        //    modelBuilder.Entity<Sandwich>()
-        //                .HasMany<Ingredient>(s => s.Ingredients)
-        //                .WithMany(i => i.Sandwiches);
-        //}
+            modelBuilder.Entity<Sandwich>()
+                        .HasMany<Ingredient>(s => s.Ingredients)
+                        .WithMany(i => i.Sandwiches);
+        }
     }
 }

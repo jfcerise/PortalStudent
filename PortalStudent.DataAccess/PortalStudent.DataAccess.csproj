@@ -50,6 +50,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataContextConfiguration.cs" />
+    <Compile Include="Migrations\201906191459047_Initial.cs" />
+    <Compile Include="Migrations\201906191459047_Initial.Designer.cs">
+      <DependentUpon>201906191459047_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906191501226_v1.cs" />
+    <Compile Include="Migrations\201906191501226_v1.Designer.cs">
+      <DependentUpon>201906191501226_v1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PortalContext.cs" />
@@ -63,6 +71,14 @@
       <Project>{59532884-4a54-422d-9d9b-ec9cfb649822}</Project>
       <Name>PortalStudent.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201906191459047_Initial.resx">
+      <DependentUpon>201906191459047_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906191501226_v1.resx">
+      <DependentUpon>201906191501226_v1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
