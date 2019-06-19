@@ -67,8 +67,8 @@ namespace PortalStudent.MVC5.Controllers
         public ActionResult Details(int ClassId)
         {
             var adminRole = new AdminRole();
-
-            var ViewValue = new ClassWithStudentsVM { Classe = adminRole.GetClass(ClassId), Students = adminRole.GetStudentsOfClass(ClassId) };
+            var students = adminRole.GetStudentsOfClass(ClassId).Select(x => new StudentSubscriptionVM { StudentId = x.StudentId, Name = $"{x.StudentName}, {x.StudentFirstName}", Subscribed = true }).ToList();
+            var ViewValue = new ClassWithStudentsVM { Classe = adminRole.GetClass(ClassId), Students = students };
 
             return View(ViewValue);
         }
@@ -78,8 +78,11 @@ namespace PortalStudent.MVC5.Controllers
         {
             var adminRole = new AdminRole();
 
-            var students = adminRole.GetStudents().Except(adminRole.GetStudentsOfClass(ClassId)).ToList();
+            // var students = adminRole.GetStudents().Except(adminRole.GetStudentsOfClass(ClassId)).ToList();
+            var students = adminRole.GetStudents().Select(x => new StudentSubscriptionVM { StudentId = x.StudentId, Name = $"{x.StudentName}, {x.StudentFirstName}", Subscribed = false }).ToList();
+            var studentsSubscribed = adminRole.GetStudentsOfClass(ClassId).ToList();
 
+            students.ForEach(x => x.Subscribed = studentsSubscribed.Any(y => y.StudentId == x.StudentId));
             var ViewValue = new ClassWithStudentsVM { Classe = adminRole.GetClass(ClassId), Students = students };
 
 

@@ -9,6 +9,6 @@ namespace PortalStudent.MVC5.Models
     public class ClassWithStudentsVM
     {
         public Class Classe { get;set;}
-        public List<Student> Students { get;set; }
+        public List<StudentSubscriptionVM> Students { get;set; }
     }
 }

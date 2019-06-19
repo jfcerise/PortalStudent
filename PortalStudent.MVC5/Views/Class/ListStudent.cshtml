@@ -1,18 +1,18 @@
 ﻿@model PortalStudent.MVC5.Models.ClassWithStudentsVM
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Composition Classe";
 }
 
-    <h2>Students to add to @Html.DisplayNameFor(model => model.Classe.Local)</h2>
+    <h2>Etudiants à ajouter à la classe '@Html.DisplayNameFor(model => model.Classe.Local)'</h2>
 
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Students[0].StudentName)
+            Selected
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Students[0].StudentFirstName)
+            NOM Prénom
         </th>
         <th></th>
     </tr>
@@ -20,10 +20,10 @@
 @foreach (var item in Model.Students) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.StudentName)
+            @Html.CheckBoxFor(modelItem => item.Subscribed)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.StudentFirstName)
+            @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
             @Html.ActionLink("Add", "AddStudent", new { ClassId = Model.Classe.ClassId, StudentId = item.StudentId })
@@ -32,3 +32,4 @@
 }
 
 </table>
+

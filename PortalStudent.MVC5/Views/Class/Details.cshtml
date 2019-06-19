@@ -1,13 +1,13 @@
 ﻿@model PortalStudent.MVC5.Models.ClassWithStudentsVM
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Composition Classe";
 }
 
-<h2>Details</h2>
+<h2>@ViewBag.Title</h2>
 
 <div>
-    <h4>Class</h4>
+
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -15,22 +15,22 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Classe.Local)
+            <h3>@Html.DisplayFor(model => model.Classe.Local)</h3>
         </dd>
 
     </dl>
 </div>
-<h2>Subcribed Students</h2>
+<h2>Etudiants inscrits dans la classe '@Html.DisplayFor(model => model.Classe.Local)'</h2>
 
 <p>
-    @Html.ActionLink("Add student", "ListStudent", new { ClassId = Model.Classe.ClassId })
+    @Html.ActionLink("Ajouter étudiant", "ListStudent", new { ClassId = Model.Classe.ClassId })
 </p>
 
 <ul>
     @foreach (var item in Model.Students)
     {
     <li>
-        @Html.DisplayFor(modelItem => item.StudentName), @Html.DisplayFor(modelItem => item.StudentFirstName) (@Html.ActionLink("Remove", "RemoveStudent", new { ClassId = Model.Classe.ClassId, StudentId = item.StudentId }))
+        @Html.DisplayFor(modelItem => item.Name)
     </li>
     }
 </ul>
