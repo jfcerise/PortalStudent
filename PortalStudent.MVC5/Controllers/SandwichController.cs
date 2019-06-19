@@ -1,4 +1,5 @@
 ﻿using PortalStudent.Common.Domain;
+using PortalStudent.MVC5.Models;
 using PortalStudent.UseCases;
 using System;
 using System.Collections.Generic;
@@ -34,13 +35,58 @@ namespace PortalStudent.MVC5.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var adminRole = new AdminRole();
+
+            var sandwichToUse = adminRole.GetSandwish(id);
+            //var listIngredients = adminRole.GetIngredients().Except(sandwichToUse.Ingredients);
+            var listIngredients = adminRole.GetIngredients();
+            return View(new ViewModel_Sandwich_Ingredients(sandwichToUse, listIngredients));
+        }
+
+
+        [HttpPost]
+        public ActionResult Edit(Sandwich sandwich)
+        {
+            var adminRole = new AdminRole();
+
+            adminRole.EditSandwichInMenu(sandwich);
+
+            return RedirectToAction("Index");
+        }
+
+        /*
+        [HttpGet]
+        public ActionResult addInSandwich(Sandwich sandwich)
+        {
+            var adminRole = new AdminRole();
+            return View(adminRole.GetIngredients());
+        }*/
+
+        [HttpPost]
+        public ActionResult addInSandwich(int Idsandwich, int Idingredient)
+        {
+            var adminRole = new AdminRole();
+
+            var sandwich = adminRole.GetSandwish(Idsandwich);
+            var ingredient = adminRole.GetIngredient(Idingredient);
+            adminRole.ComposeSandwish(sandwich, ingredient);
+
+            return RedirectToAction("Edit",Idsandwich);
+        }
+
+
+
+
         //[HttpGet]
         //public ActionResult Details()
         //{
         //    return View();
         //}
 
-//TODO Not in Benjamin
+        //TODO Not in Benjamin
         [HttpPost]
         public ActionResult Details(int sandwichId)
         {
@@ -48,6 +94,7 @@ namespace PortalStudent.MVC5.Controllers
 
             return View(adminRole.GetSandwish(sandwichId));
         }
+
 
         #region By Benjamin
         [HttpGet]

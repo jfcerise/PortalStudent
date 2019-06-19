@@ -49,13 +49,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201906190806478_Initial.cs" />
-    <Compile Include="Migrations\201906190806478_Initial.Designer.cs">
-      <DependentUpon>201906190806478_Initial.cs</DependentUpon>
+    <Compile Include="DataContextConfiguration.cs" />
+    <Compile Include="Migrations\201906191459047_Initial.cs" />
+    <Compile Include="Migrations\201906191459047_Initial.Designer.cs">
+      <DependentUpon>201906191459047_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201906190923275_Initial_v2.cs" />
-    <Compile Include="Migrations\201906190923275_Initial_v2.Designer.cs">
-      <DependentUpon>201906190923275_Initial_v2.cs</DependentUpon>
+    <Compile Include="Migrations\201906191501226_v1.cs" />
+    <Compile Include="Migrations\201906191501226_v1.Designer.cs">
+      <DependentUpon>201906191501226_v1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,11 +73,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201906190806478_Initial.resx">
-      <DependentUpon>201906190806478_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201906191459047_Initial.resx">
+      <DependentUpon>201906191459047_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906190923275_Initial_v2.resx">
-      <DependentUpon>201906190923275_Initial_v2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201906191501226_v1.resx">
+      <DependentUpon>201906191501226_v1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

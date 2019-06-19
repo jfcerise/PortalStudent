@@ -41,7 +41,7 @@
                             @Html.DisplayFor(modelItem => item.Name)
                         </td>
                         <td>
-                            @Html.ActionLink("Delete", "DeleteIngredient", new {Model.SandwichId, item.IngredientId })
+                            @Html.ActionLink("Delete", "DeleteIngredient", new {idS = Model.SandwichId, idIng = item.IngredientId })
                         </td>
                     </tr>
                 }
