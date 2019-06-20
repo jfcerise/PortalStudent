@@ -11,7 +11,7 @@ namespace PortalStudent.Common.Domain
         public int ClassId { get; set; }
         public string Local { get; set; }
 
-        public ICollection<Sandwich> Sandwiches { get; set; }
-        public ICollection<Student> Students { get; set; }
+        public virtual ICollection<Sandwich> Sandwiches { get; set; }
+        public virtual ICollection<Student> Students { get; set; }
     }
 }

@@ -27,7 +27,23 @@ namespace PortalStudent.DataAccess
 
             modelBuilder.Entity<Sandwich>()
                         .HasMany<Ingredient>(s => s.Ingredients)
-                        .WithMany(i => i.Sandwiches);
+                        .WithMany(i => i.Sandwiches)
+                        .Map(cs =>
+                        {
+                            cs.MapLeftKey("SandwichId");
+                            cs.MapRightKey("IngredientId");
+                            cs.ToTable("SandwichIngredients");
+                        }); ;
+
+            modelBuilder.Entity<Class>()
+            .HasMany<Student>(c => c.Students)
+            .WithMany(s => s.Classes)
+            .Map(cs =>
+            {
+                cs.MapLeftKey("ClassId");
+                cs.MapRightKey("StudentId");
+                cs.ToTable("StudentClasses");
+            }); ;
         }
     }
 }

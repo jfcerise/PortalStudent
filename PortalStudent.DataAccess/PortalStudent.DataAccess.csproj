@@ -57,6 +57,10 @@
     <Compile Include="Migrations\201906190923275_Initial_v2.Designer.cs">
       <DependentUpon>201906190923275_Initial_v2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906201004069_4.cs" />
+    <Compile Include="Migrations\201906201004069_4.Designer.cs">
+      <DependentUpon>201906201004069_4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PortalContext.cs" />
@@ -77,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906190923275_Initial_v2.resx">
       <DependentUpon>201906190923275_Initial_v2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906201004069_4.resx">
+      <DependentUpon>201906201004069_4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

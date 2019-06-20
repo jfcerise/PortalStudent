@@ -4,6 +4,7 @@ using PortalStudent.UseCases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 using System.Web.Mvc;
 
@@ -86,7 +87,34 @@ namespace PortalStudent.MVC5.Controllers
             var ViewValue = new ClassWithStudentsVM { Classe = adminRole.GetClass(ClassId), Students = students };
 
 
+
             return View(ViewValue);//ajouter page de selection
+        }
+
+        [HttpPost]
+        public ActionResult ListStudentSav(ClassWithStudentsVM maClasseStudent)
+        {
+            var adminRole = new AdminRole();
+
+            adminRole.UpdateClassAttendence(maClasseStudent.Classe.ClassId, maClasseStudent.Students.Where(x => x.Subscribed == true).Select(x=> adminRole.GetStudent(x.StudentId)).ToList());
+
+            //var existingStudent = adminRole.GetStudentsOfClass(maClasseStudent.Classe.ClassId).Select(x=>x.StudentId);
+            //var deletedStudent = Queryable.Except<Student>(existingStudent.AsQueryable(), maClasseStudent.Students.Where(x=>x.Subscribed == true).Select(x => x.StudentId)).ToList();
+            ////var addedStudent = maClasseStudent.Students.Where(a => a.Subscribed == true);
+
+            //for (var i = 0; i < maClasseStudent.Students.Count(); i++)
+            //{
+            //    if  (maClasseStudent.Students[i].Subscribed == false)
+            //    {
+            //        var ViewValue1 = adminRole.RemoveStudent(maClasseStudent.Classe.ClassId, maClasseStudent.Students[i].StudentId);
+            //    }
+            //    else
+            //    {
+            //        var ViewValue2 = adminRole.AddStudent2(adminRole.GetClass(maClasseStudent.Classe.ClassId), adminRole.GetStudent(maClasseStudent.Students[i].StudentId));
+            //    }
+            //}
+
+            return RedirectToAction("Details", new { ClassId = maClasseStudent.Classe.ClassId });
         }
 
         [HttpGet]
@@ -101,7 +129,9 @@ namespace PortalStudent.MVC5.Controllers
         [HttpGet]
         public ActionResult RemoveStudent(int ClassId, int StudentId)
         {
-            //remove student de la classes
+            var adminRole = new AdminRole();
+
+            var ViewValue = adminRole.RemoveStudent2(adminRole.GetClass(ClassId), adminRole.GetStudent(StudentId));
 
             return RedirectToAction("Details", new { ClassId = ClassId });
         }
